@@ -1,20 +1,25 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import styled from 'styled-components';
 import Home from './components/Home';
 import Store from './components/Store';
-import Header from './components/Nav';
+import Nav from './components/Nav';
 
 function App() {
 	return (
-		<Router>
+		<StyledMain>
 			<Nav />
-			<main>
-				<Routes>
-					<Route path='/' element={<Home />} />
-					<Route path='/store' element={<Store />} />
-				</Routes>
-			</main>
-		</Router>
+			<Routes>
+				<Route path='/' element={<Home />} />
+				<Route path='/store' element={<Store />} />
+			</Routes>
+		</StyledMain>
 	);
 }
 
 export default App;
+
+const StyledMain = styled.main`
+	min-height: 100vh;
+	width: 100vw;
+	background-color: black;
+`;
