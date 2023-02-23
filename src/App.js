@@ -6,13 +6,16 @@ import Nav from './components/Nav';
 
 function App() {
 	return (
-		<StyledMain>
+		<>
 			<Nav />
-			<Routes>
-				<Route path='/' element={<Home />} />
-				<Route path='/store' element={<Store />} />
-			</Routes>
-		</StyledMain>
+			<StyledMain>
+				<Routes>
+					<Route path='/' element={<Home />} />
+					<Route path='/store' element={<Store />} />
+				</Routes>
+			</StyledMain>
+			<HomeNav></HomeNav>
+		</>
 	);
 }
 
@@ -22,4 +25,9 @@ const StyledMain = styled.main`
 	min-height: 100vh;
 	width: 100vw;
 	background-color: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 `;
+
+const HomeNav = styled.div``;

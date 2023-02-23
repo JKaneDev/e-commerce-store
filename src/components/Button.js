@@ -18,8 +18,7 @@ const StyledButton = styled.button`
 	letter-spacing: 0.15rem;
 	border: 1px solid white;
 	border-radius: 4px;
-	font-weight: bold;
-	font-size: 2.25ch;
+	font-size: 2ch;
 	transition: all 0.15s ease-in-out;
 	display: flex;
 	align-items: center;

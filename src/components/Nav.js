@@ -10,7 +10,7 @@ const Nav = () => {
 		<StyledNav>
 			<Button img={<TiShoppingCart size={28} />} text='Browse' />
 			<Button img={<SiGithub size={28} />} text='JKaneDev' />
-			<Button img={<RiShoppingBagLine size={28} />} text='Cart' />
+			<Button img={<RiShoppingBagLine size={28} />} text='Cart: 0' />
 		</StyledNav>
 	);
 };
