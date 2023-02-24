@@ -1,10 +1,21 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import games from './utils/games';
 import styled from 'styled-components';
 import Home from './components/Home';
 import Store from './components/Store';
 import Nav from './components/Nav';
 
 function App() {
+	// GLOBAL FUNCTIONS
+	const [games, setGames] = useState();
+	const [] = useState();
+	const [] = useState();
+	const [] = useState();
+	const [] = useState();
+	const [] = useState();
+
+	// RENDERING
 	const location = useLocation();
 	return (
 		<>
