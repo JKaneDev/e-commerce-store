@@ -1,4 +1,4 @@
-import Link from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from './Button';
 import { FaTwitter } from 'react-icons/fa';
@@ -8,7 +8,7 @@ import { SiGithub } from 'react-icons/si';
 
 const Home = () => {
 	return (
-		<StyledHomePage>
+		<StyledHomePage type='home'>
 			<h1>
 				<span>Cyber</span>zone
 			</h1>
@@ -19,10 +19,18 @@ const Home = () => {
 				reflexes and your experience be as legendary as your victories.
 			</p>
 			<HomeNav id='home-nav'>
-				<Button img={<RiArrowRightSLine size={18} />} text='Browse' />
-				<Button img={<SiGithub size={18} />} text='GitHub' />
-				<Button img={<FaTwitter size={18} />} text='Twitter' />
-				<Button img={<FaLinkedinIn size={18} />} text='LinkedIn' />
+				<Link to='/store'>
+					<Button img={<RiArrowRightSLine size={18} />} text='Browse' />
+				</Link>
+				<a href='https://github.com/JKaneDev/e-commerce-store' target='_blank'>
+					<Button img={<SiGithub size={18} />} text='GitHub' />
+				</a>
+				<a href='https://twitter.com/?lang=en' target='_blank'>
+					<Button img={<FaTwitter size={18} />} text='Twitter' />
+				</a>
+				<a href='https://uk.linkedin.com/' target='_blank'>
+					<Button img={<FaLinkedinIn size={18} />} text='LinkedIn' />
+				</a>
 			</HomeNav>
 		</StyledHomePage>
 	);
@@ -46,7 +54,7 @@ const StyledHomePage = styled.div`
 	}
 
 	span {
-		color: orange;
+		color: #322bfc;
 	}
 
 	p {

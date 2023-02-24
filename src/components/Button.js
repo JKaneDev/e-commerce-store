@@ -25,8 +25,8 @@ const StyledButton = styled.button`
 	gap: 1rem;
 
 	&:hover {
-		border: 1px solid orange;
-		color: orange;
+		border: 1px solid #322bfc;
+		color: #322bfc;
 		transform: translateY(-2.5%);
 	}
 `;

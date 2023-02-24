@@ -1,20 +1,20 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Home from './components/Home';
 import Store from './components/Store';
 import Nav from './components/Nav';
 
 function App() {
+	const location = useLocation();
 	return (
 		<>
 			<Nav />
-			<StyledMain>
+			<StyledMain location={location}>
 				<Routes>
 					<Route path='/' element={<Home />} />
 					<Route path='/store' element={<Store />} />
 				</Routes>
 			</StyledMain>
-			<HomeNav></HomeNav>
 		</>
 	);
 }
@@ -25,9 +25,23 @@ const StyledMain = styled.main`
 	min-height: 100vh;
 	width: 100vw;
 	background-color: black;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-`;
 
-const HomeNav = styled.div``;
+	// HOME RENDERED
+	${({ location }) =>
+		location.pathname === '/' &&
+		`
+  display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+  `}
+
+	// STORE RENDERED
+	${({ location }) =>
+		location.pathname === '/store' &&
+		`
+  display: grid;
+	grid-template-columns: 150px 1fr;
+  padding: 2rem;
+  `}
+`;
