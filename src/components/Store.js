@@ -1,20 +1,14 @@
 import Link from 'react-router-dom';
-import styled from 'styled-components';
 import Sidenav from './Sidenav';
 import CardWrapper from './CardWrapper';
 
-const Store = () => {
+const Store = ({ games }) => {
 	return (
 		<>
 			<Sidenav />
-			<CardWrapper />
+			<CardWrapper games={games} />
 		</>
 	);
 };
 
 export default Store;
-
-// const StyledStore = styled.div`
-// 	display: grid;
-// 	grid-template-columns: 150px 1fr;
-// `;

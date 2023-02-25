@@ -1,10 +1,27 @@
-import Gamecard from './Gamecard';
 import Button from './Button';
 import styled from 'styled-components';
-import { FaThLarge, FaTh } from 'react-icons/fa';
+import { FaThLarge } from 'react-icons/fa';
 import { MdViewStream } from 'react-icons/md';
+import Gamecard from './Gamecard';
 
-const CardWrapper = () => {
+const CardWrapper = ({ games }) => {
+	// RENDER GAME CARD FOR EACH GAME
+	const renderGames = () => {
+		return games.map((game) => {
+			return (
+				<Gamecard
+					key={game.id}
+					props={game}
+					images={game.footage}
+					inCart={game.inCart}
+					isHovered={game.isHovered}
+					isLiked={game.isLiked}
+					selected={game.selected}
+				/>
+			);
+		});
+	};
+
 	return (
 		<StyledCardWrapper>
 			<h1>Trending and highly rated</h1>
@@ -16,6 +33,7 @@ const CardWrapper = () => {
 					<Button img={<MdViewStream size={28} />} />
 				</div>
 			</div>
+			<div id='rendered-cards'>{renderGames()}</div>
 		</StyledCardWrapper>
 	);
 };
@@ -45,7 +63,13 @@ const StyledCardWrapper = styled.div`
 
 	div > div {
 		margin-left: auto;
-		padding-right: 1rem;
+	}
+
+	#rendered-cards {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1rem;
+		margin-top: 1rem;
 	}
 `;
 

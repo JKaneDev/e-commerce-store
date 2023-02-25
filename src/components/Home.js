@@ -54,7 +54,7 @@ const StyledHomePage = styled.div`
 	}
 
 	span {
-		color: #322bfc;
+		color: orange;
 	}
 
 	p {

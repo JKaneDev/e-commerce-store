@@ -8,12 +8,10 @@ import Nav from './components/Nav';
 
 function App() {
 	// GLOBAL FUNCTIONS
-	const [games, setGames] = useState();
-	const [] = useState();
-	const [] = useState();
-	const [] = useState();
-	const [] = useState();
-	const [] = useState();
+	const [allGames, setGames] = useState(games);
+	const [genre, setGenre] = useState();
+	const [filter, setFilter] = useState();
+	const [view, setView] = useState();
 
 	// RENDERING
 	const location = useLocation();
@@ -23,7 +21,7 @@ function App() {
 			<StyledMain location={location}>
 				<Routes>
 					<Route path='/' element={<Home />} />
-					<Route path='/store' element={<Store />} />
+					<Route path='/store' element={<Store games={allGames} />} />
 				</Routes>
 			</StyledMain>
 		</>
