@@ -10,7 +10,7 @@ function App() {
 	// STATE VARIABLES
 	const [allGames, setGames] = useState(games);
 	const [wishlist, setWishlist] = useState([]);
-	const [view, setView] = useState();
+	const [view, setView] = useState('');
 
 	// RENDERING
 	const location = useLocation();

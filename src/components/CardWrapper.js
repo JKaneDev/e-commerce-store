@@ -7,23 +7,52 @@ import Gamecard from './Gamecard';
 const CardWrapper = ({ games, wishlist, setWishlist, view }) => {
 	// RENDER GAME CARD FOR EACH GAME
 	const renderGames = () => {
-		return games.map((game) => {
-			return (
-				<Gamecard
-					key={game.id}
-					props={game}
-					images={game.footage}
-					inCart={game.inCart}
-					isHovered={game.isHovered}
-					isLiked={game.isLiked}
-					selected={game.selected}
-					wishlist={wishlist}
-					setWishlist={setWishlist}
-				/>
-			);
-		});
+		console.log(games);
+		const filteredGames = games.filter(
+			(game) => game.genre.toLowerCase() === view
+		);
+
+		// IF NO SPECIFIC VIEW HAS BEEN SELECTED, RENDER ALL GAMES
+		if (view === '') {
+			return games.map((game) => {
+				console.log(game.name);
+				return (
+					<Gamecard
+						key={game.id}
+						props={game}
+						images={game.footage}
+						inCart={game.inCart}
+						isHovered={game.isHovered}
+						isLiked={game.isLiked}
+						selected={game.selected}
+						wishlist={wishlist}
+						setWishlist={setWishlist}
+					/>
+				);
+			});
+
+			// IF VIEW HAS BEEN SELECTED VIA SIDEBAR BUTTON, RENDER APPROPRIATE CARDS
+		} else {
+			return filteredGames.map((game) => {
+				console.log(game.name);
+				return (
+					<Gamecard
+						key={game.id}
+						props={game}
+						images={game.footage}
+						inCart={game.inCart}
+						isHovered={game.isHovered}
+						isLiked={game.isLiked}
+						selected={game.selected}
+						wishlist={wishlist}
+						setWishlist={setWishlist}
+					/>
+				);
+			});
+		}
 	};
 
+	// RENDER TO DOM
 	return (
 		<StyledCardWrapper>
 			<h1>Trending and highly rated</h1>
