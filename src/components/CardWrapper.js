@@ -4,7 +4,7 @@ import { FaThLarge } from 'react-icons/fa';
 import { MdViewStream } from 'react-icons/md';
 import Gamecard from './Gamecard';
 
-const CardWrapper = ({ games }) => {
+const CardWrapper = ({ games, wishlist, setWishlist, view }) => {
 	// RENDER GAME CARD FOR EACH GAME
 	const renderGames = () => {
 		return games.map((game) => {
@@ -17,6 +17,8 @@ const CardWrapper = ({ games }) => {
 					isHovered={game.isHovered}
 					isLiked={game.isLiked}
 					selected={game.selected}
+					wishlist={wishlist}
+					setWishlist={setWishlist}
 				/>
 			);
 		});

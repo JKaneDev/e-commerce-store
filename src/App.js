@@ -7,10 +7,9 @@ import Store from './components/Store';
 import Nav from './components/Nav';
 
 function App() {
-	// GLOBAL FUNCTIONS
+	// STATE VARIABLES
 	const [allGames, setGames] = useState(games);
-	const [genre, setGenre] = useState();
-	const [filter, setFilter] = useState();
+	const [wishlist, setWishlist] = useState([]);
 	const [view, setView] = useState();
 
 	// RENDERING
@@ -21,7 +20,18 @@ function App() {
 			<StyledMain location={location}>
 				<Routes>
 					<Route path='/' element={<Home />} />
-					<Route path='/store' element={<Store games={allGames} />} />
+					<Route
+						path='/store'
+						element={
+							<Store
+								view={view}
+								setView={setView}
+								games={allGames}
+								wishlist={wishlist}
+								setWishlist={setWishlist}
+							/>
+						}
+					/>
 				</Routes>
 			</StyledMain>
 		</>
@@ -50,7 +60,7 @@ const StyledMain = styled.main`
 		location.pathname === '/store' &&
 		`
   display: grid;
-	grid-template-columns: 150px 1fr;
+  grid-template-columns: 150px 1fr;
   padding: 2rem;
   `}
 `;
