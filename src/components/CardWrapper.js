@@ -4,10 +4,9 @@ import { FaThLarge } from 'react-icons/fa';
 import { MdViewStream } from 'react-icons/md';
 import Gamecard from './Gamecard';
 
-const CardWrapper = ({ games, wishlist, setWishlist, view }) => {
+const CardWrapper = ({ games, wishlist, setWishlist, view, setView }) => {
 	// RENDER GAME CARD FOR EACH GAME
 	const renderGames = () => {
-		console.log(games);
 		const filteredGames = games.filter(
 			(game) => game.genre.toLowerCase() === view
 		);
@@ -15,7 +14,6 @@ const CardWrapper = ({ games, wishlist, setWishlist, view }) => {
 		// IF NO SPECIFIC VIEW HAS BEEN SELECTED, RENDER ALL GAMES
 		if (view === '') {
 			return games.map((game) => {
-				console.log(game.name);
 				return (
 					<Gamecard
 						key={game.id}
@@ -31,10 +29,9 @@ const CardWrapper = ({ games, wishlist, setWishlist, view }) => {
 				);
 			});
 
-			// IF VIEW HAS BEEN SELECTED VIA SIDEBAR BUTTON, RENDER APPROPRIATE CARDS
+			// IF VIEW HAS BEEN SELECTED VIA GENRE, RENDER APPROPRIATE CARDS
 		} else {
 			return filteredGames.map((game) => {
-				console.log(game.name);
 				return (
 					<Gamecard
 						key={game.id}
@@ -54,18 +51,22 @@ const CardWrapper = ({ games, wishlist, setWishlist, view }) => {
 
 	// RENDER TO DOM
 	return (
-		<StyledCardWrapper>
-			<h1>Trending and highly rated</h1>
-			<div>
-				<Button text='Filter by: none' />
-				<Button text='Clear Filter' />
+		console.log('setView:', setView),
+		console.log('view:', view),
+		(
+			<StyledCardWrapper>
+				<h1>Trending and highly rated</h1>
 				<div>
-					<Button img={<FaThLarge size={28} />} />
-					<Button img={<MdViewStream size={28} />} />
+					<Button text='Filter by: none' />
+					<Button text='Clear Filter' onClick={() => setView('')} />
+					<div>
+						<Button img={<FaThLarge size={28} />} />
+						<Button img={<MdViewStream size={28} />} />
+					</div>
 				</div>
-			</div>
-			<div id='rendered-cards'>{renderGames()}</div>
-		</StyledCardWrapper>
+				<div id='rendered-cards'>{renderGames()}</div>
+			</StyledCardWrapper>
+		)
 	);
 };
 

@@ -8,6 +8,7 @@ const Store = ({ games, wishlist, setWishlist, view, setView }) => {
 			<Sidenav wishlist={wishlist} view={view} setView={setView} />
 			<CardWrapper
 				view={view}
+				setView={setView}
 				games={games}
 				wishlist={wishlist}
 				setWishlist={setWishlist}

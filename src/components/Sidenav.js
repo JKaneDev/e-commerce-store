@@ -17,9 +17,9 @@ import {
 } from 'react-icons/fa';
 
 const Sidenav = ({ view, setView }) => {
-	useEffect(() => {
-		console.log(view);
-	}, [view]);
+	// useEffect(() => {
+	// 	console.log(view);
+	// }, [view]);
 
 	return (
 		<StyledSideNav>
