@@ -27,6 +27,7 @@ function App() {
 								view={view}
 								setView={setView}
 								games={allGames}
+								setGames={setGames}
 								wishlist={wishlist}
 								setWishlist={setWishlist}
 							/>

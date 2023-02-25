@@ -4,7 +4,14 @@ import { FaThLarge } from 'react-icons/fa';
 import { MdViewStream } from 'react-icons/md';
 import Gamecard from './Gamecard';
 
-const CardWrapper = ({ games, wishlist, setWishlist, view, setView }) => {
+const CardWrapper = ({
+	games,
+	setGames,
+	wishlist,
+	setWishlist,
+	view,
+	setView,
+}) => {
 	// RENDER GAME CARD FOR EACH GAME
 	const renderGames = () => {
 		const filteredGames = games.filter(
@@ -16,6 +23,8 @@ const CardWrapper = ({ games, wishlist, setWishlist, view, setView }) => {
 			return games.map((game) => {
 				return (
 					<Gamecard
+						games={games}
+						setGames={setGames}
 						key={game.id}
 						props={game}
 						images={game.footage}
@@ -34,6 +43,8 @@ const CardWrapper = ({ games, wishlist, setWishlist, view, setView }) => {
 			return filteredGames.map((game) => {
 				return (
 					<Gamecard
+						games={games}
+						setGames={setGames}
 						key={game.id}
 						props={game}
 						images={game.footage}
@@ -51,22 +62,20 @@ const CardWrapper = ({ games, wishlist, setWishlist, view, setView }) => {
 
 	// RENDER TO DOM
 	return (
-		console.log('setView:', setView),
-		console.log('view:', view),
-		(
-			<StyledCardWrapper>
-				<h1>Trending and highly rated</h1>
+		// console.log('setView:', setView),
+		// console.log('view:', view),
+		<StyledCardWrapper>
+			<h1>Trending and highly rated</h1>
+			<div>
+				<Button text='Filter by: none' />
+				<Button text='Clear Filter' onClick={() => setView('')} />
 				<div>
-					<Button text='Filter by: none' />
-					<Button text='Clear Filter' onClick={() => setView('')} />
-					<div>
-						<Button img={<FaThLarge size={28} />} />
-						<Button img={<MdViewStream size={28} />} />
-					</div>
+					<Button img={<FaThLarge size={28} />} />
+					<Button img={<MdViewStream size={28} />} />
 				</div>
-				<div id='rendered-cards'>{renderGames()}</div>
-			</StyledCardWrapper>
-		)
+			</div>
+			<div id='rendered-cards'>{renderGames()}</div>
+		</StyledCardWrapper>
 	);
 };
 

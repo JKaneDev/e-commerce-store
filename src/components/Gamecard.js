@@ -6,16 +6,37 @@ import Button from './Button';
 const Gamecard = ({
 	props,
 	images,
-	inCart,
-	isHovered,
-	isLiked,
-	selected,
+	games,
+	setGames,
 	wishlist,
 	setWishlist,
 }) => {
 	// useEffect(() => {
-	// 	console.log(wishlist);
-	// }, [wishlist]);
+	// 	console.log(props.name, props.isLiked);
+	// }, [props.isLiked]);
+
+	useEffect(() => {
+		console.log(wishlist);
+	}, [wishlist]);
+
+	const toggleWishlist = (name, isLiked) => {
+		// ADD ITEM TO WISHLIST IF NOT ALREADY PRESENT, REMOVE IF IT IS
+		wishlist.includes(name)
+			? setWishlist(wishlist.filter((game) => game !== name))
+			: setWishlist([...wishlist, name]);
+		// TOGGLE isLiked STATUS OF GAME
+		setGames(
+			games.map((game) => {
+				if (game.name === name) {
+					return {
+						...game,
+						isLiked: !isLiked,
+					};
+				}
+				return game;
+			})
+		);
+	};
 
 	return (
 		// console.log(props),
@@ -24,7 +45,8 @@ const Gamecard = ({
 			<div>
 				<p id='name'>{props.name}</p>|<p>${props.price}</p>
 				<button
-					onClick={() => setWishlist([...wishlist, props.name])}
+					className={props.isLiked ? 'in-wishlist' : 'not-in-wishlist'}
+					onClick={() => toggleWishlist(props.name, props.isLiked)}
 					id='add-to-wishlist'
 				>
 					<FaHeart size={14} id='heart' />
@@ -110,6 +132,14 @@ const Card = styled.div`
 			color: red;
 			transform: scale(1.1);
 		}
+	}
+
+	.in-wishlist #heart {
+		color: red;
+	}
+
+	.not-in-wishlist #heart {
+		color: white;
 	}
 
 	div,
