@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Button from './Button';
 import styled from 'styled-components';
 import { FaThLarge } from 'react-icons/fa';
@@ -12,11 +13,25 @@ const CardWrapper = ({
 	view,
 	setView,
 }) => {
+	useEffect(() => {
+		games.forEach((game) => {
+			if (game.isLiked === true) {
+				console.log(game.name);
+				console.log(wishlist);
+			}
+		});
+	}, [wishlist]);
+
 	// RENDER GAME CARD FOR EACH GAME
+
+	// GENRE FILTER
 	const renderGames = () => {
 		const filteredGames = games.filter(
 			(game) => game.genre.toLowerCase() === view
 		);
+
+		// WISHLIST FILTER
+		const wishlistGames = games.filter((game) => game.isLiked === true);
 
 		// IF NO SPECIFIC VIEW HAS BEEN SELECTED, RENDER ALL GAMES
 		if (view === '') {
@@ -38,8 +53,27 @@ const CardWrapper = ({
 				);
 			});
 
-			// IF VIEW HAS BEEN SELECTED VIA GENRE, RENDER APPROPRIATE CARDS
+			// IF WISHLIST HAS BEEN SELECTED
+		} else if (view === 'wishlist') {
+			return wishlistGames.map((game) => {
+				return (
+					<Gamecard
+						games={games}
+						setGames={setGames}
+						key={game.id}
+						props={game}
+						images={game.footage}
+						inCart={game.inCart}
+						isHovered={game.isHovered}
+						isLiked={game.isLiked}
+						selected={game.selected}
+						wishlist={wishlist}
+						setWishlist={setWishlist}
+					/>
+				);
+			});
 		} else {
+			// IF VIEW HAS BEEN SELECTED VIA GENRE, RENDER APPROPRIATE CARDS
 			return filteredGames.map((game) => {
 				return (
 					<Gamecard
@@ -67,7 +101,7 @@ const CardWrapper = ({
 		<StyledCardWrapper>
 			<h1>Trending and highly rated</h1>
 			<div>
-				<Button text='Filter by: none' />
+				<Button text={`Filter by: ${view}`} />
 				<Button text='Clear Filter' onClick={() => setView('')} />
 				<div>
 					<Button img={<FaThLarge size={28} />} />

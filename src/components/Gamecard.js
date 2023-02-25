@@ -15,9 +15,9 @@ const Gamecard = ({
 	// 	console.log(props.name, props.isLiked);
 	// }, [props.isLiked]);
 
-	useEffect(() => {
-		console.log(wishlist);
-	}, [wishlist]);
+	// useEffect(() => {
+	// 	console.log(wishlist);
+	// }, [wishlist]);
 
 	const toggleWishlist = (name, isLiked) => {
 		// ADD ITEM TO WISHLIST IF NOT ALREADY PRESENT, REMOVE IF IT IS
@@ -39,7 +39,6 @@ const Gamecard = ({
 	};
 
 	return (
-		// console.log(props),
 		<Card>
 			<img src={images[0]} alt='cover' />
 			<div>
