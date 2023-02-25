@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const Button = ({ img, text }) => {
+const Button = ({ img, text, onClick }) => {
 	return (
-		<StyledButton>
+		<StyledButton onClick={onClick}>
 			{img}
 			{text}
 		</StyledButton>
