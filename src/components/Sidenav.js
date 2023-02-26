@@ -112,4 +112,8 @@ const StyledSideNav = styled.div`
 		flex-direction: column;
 		gap: 1rem;
 	}
+
+	@media (max-width: 560px) {
+		display: none;
+	}
 `;

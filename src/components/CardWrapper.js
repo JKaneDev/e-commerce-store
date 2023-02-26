@@ -123,10 +123,10 @@ const CardWrapper = ({
 		// console.log('view:', view),
 		<StyledCardWrapper>
 			<h1>Trending and highly rated</h1>
-			<div>
+			<div className='filter-view'>
 				<Button text={`Filter by: ${view}`} />
 				<Button text='Clear Filter' onClick={() => setView('')} id='clear' />
-				<div>
+				<div className='view-options'>
 					<Button img={<FaThLarge size={28} />} />
 					<Button img={<MdViewStream size={28} />} />
 				</div>
@@ -167,7 +167,26 @@ const StyledCardWrapper = styled.div`
 		margin-left: auto;
 	}
 
-	@media (max-width: 725px) {
+	@media (max-width: 560px) {
+		.filter-view {
+			display: none;
+		}
+	}
+
+	@media (max-width: 620px) {
+		h1 {
+			display: none;
+		}
+	}
+
+	@media (max-width: 750px) {
+		.view-options button {
+			display: none;
+		}
+
+		.filter-view button {
+			padding: 0.75rem 1rem;
+		}
 	}
 
 	#rendered-cards {
@@ -175,6 +194,10 @@ const StyledCardWrapper = styled.div`
 		grid-template-columns: repeat(2, 1fr);
 		gap: 1rem;
 		margin-top: 1rem;
+
+		@media (max-width: 560px) {
+			width: 450px;
+		}
 
 		@media (max-width: 750px) {
 			grid-template-columns: 1fr;

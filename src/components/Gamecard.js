@@ -146,9 +146,9 @@ const Card = styled.div`
 		background-color: rgb(0, 0, 0, 0.4);
 	}
 
-	@media (max-width: 825px) {
+	@media (max-width: 800px) {
 		p {
-			font-size: 1.4ch;
+			font-size: 1.6ch;
 		}
 
 		#heart {
