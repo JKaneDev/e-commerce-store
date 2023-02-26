@@ -33,6 +33,11 @@ const CardWrapper = ({
 		// WISHLIST FILTER
 		const wishlistGames = games.filter((game) => game.isLiked === true);
 
+		// SPECIFIC GAME FILTER
+		const filteredByNameGames = games.filter((game) =>
+			game.name.toLowerCase().includes(view.toLowerCase())
+		);
+
 		// IF NO SPECIFIC VIEW HAS BEEN SELECTED, RENDER ALL GAMES
 		if (view === '') {
 			return games.map((game) => {
@@ -56,6 +61,24 @@ const CardWrapper = ({
 			// IF WISHLIST HAS BEEN SELECTED
 		} else if (view === 'wishlist') {
 			return wishlistGames.map((game) => {
+				return (
+					<Gamecard
+						games={games}
+						setGames={setGames}
+						key={game.id}
+						props={game}
+						images={game.footage}
+						inCart={game.inCart}
+						isHovered={game.isHovered}
+						isLiked={game.isLiked}
+						selected={game.selected}
+						wishlist={wishlist}
+						setWishlist={setWishlist}
+					/>
+				);
+			});
+		} else if (filteredByNameGames.length > 0) {
+			return filteredByNameGames.map((game) => {
 				return (
 					<Gamecard
 						games={games}
@@ -153,7 +176,7 @@ const StyledCardWrapper = styled.div`
 		gap: 1rem;
 		margin-top: 1rem;
 
-		@media (max-width: 725px) {
+		@media (max-width: 750px) {
 			grid-template-columns: 1fr;
 			padding: 0.5rem;
 		}

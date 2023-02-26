@@ -4,22 +4,28 @@ import Button from './Button';
 import styled from 'styled-components';
 import { TiShoppingCart } from 'react-icons/ti';
 import { RiShoppingBagLine } from 'react-icons/ri';
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch, FaStreetView } from 'react-icons/fa';
 
-const StoreNav = () => {
+const StoreNav = ({ view, setView }) => {
 	// FOCUS INPUT ON SEARCH ICON CLICK
 	const inputRef = useRef(null);
 	const handleIconClick = () => inputRef.current.focus();
 
+	// RENDER CARDS BASED ON SEARCH BAR INPUT
+	const handleSearchInput = (value) => {
+		const updatedView = value;
+		setView(updatedView);
+	};
+
 	return (
 		<StyledNav>
 			<div>
-				<div>
-					<FaSearch onClick={handleIconClick} size={16} />
-				</div>
+				<FaSearch onClick={handleIconClick} size={16} />
+
 				<input
 					type='text'
-					placeholder='E.g. Cyberpunk 2077'
+					placeholder='Search games...'
+					onChange={(event) => handleSearchInput(event.target.value)}
 					ref={inputRef}
 				></input>
 			</div>

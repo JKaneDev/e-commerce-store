@@ -145,6 +145,28 @@ const Card = styled.div`
 	button {
 		background-color: rgb(0, 0, 0, 0.4);
 	}
+
+	@media (max-width: 825px) {
+		p {
+			font-size: 1.4ch;
+		}
+
+		#heart {
+			height: 12px;
+			width: 12px;
+		}
+	}
+
+	@media (max-width: 750px) {
+		p {
+			font-size: 1.75ch;
+		}
+
+		#heart {
+			height: 15px;
+			width: 15px;
+		}
+	}
 `;
 
 export default Gamecard;
