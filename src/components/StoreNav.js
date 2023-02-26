@@ -51,6 +51,10 @@ const StyledNav = styled.nav`
 
 	div {
 		display: flex;
+
+		svg {
+			margin-right: 1rem;
+		}
 	}
 
 	div:nth-child(1) {
@@ -58,10 +62,9 @@ const StyledNav = styled.nav`
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		padding-left: 0.75rem;
+		padding-left: 1.1rem;
 		padding-right: 1.25rem;
-		border-top-left-radius: 6px;
-		border-bottom-left-radius: 6px;
+		border-radius: 6px;
 		border-right: 1px solid black;
 		transition: 0.25s all ease-in-out;
 
@@ -79,6 +82,7 @@ const StyledNav = styled.nav`
 		height: 35px;
 		font-size: 2ch;
 		display: flex;
+		border-left: 1px solid black;
 
 		&::placeholder {
 			color: #747575;

@@ -10,13 +10,15 @@ import StoreNav from './components/StoreNav';
 function App() {
 	// STATE VARIABLES
 	const [allGames, setGames] = useState(games);
-	const [wishlist, setWishlist] = useState([]);
 	const [view, setView] = useState('');
+	const [wishlist, setWishlist] = useState([]);
+	const [cart, setCart] = useState([]);
 
 	// RENDERING
 	const location = useLocation();
 	return (
 		<>
+			{/* RENDER DIFFERENT NAV DEPENDING ON ROUTE */}
 			{location.pathname === '/' && <HomeNav />}
 			{location.pathname === '/store' && (
 				<StoreNav view={view} setView={setView} />
@@ -34,6 +36,8 @@ function App() {
 								setGames={setGames}
 								wishlist={wishlist}
 								setWishlist={setWishlist}
+								cart={cart}
+								setCart={setCart}
 							/>
 						}
 					/>

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { useEffect } from 'react';
-import { FaPlus, FaHeart } from 'react-icons/fa';
+import { createRef, useEffect } from 'react';
+import { FaPlus, FaHeart, FaCheck } from 'react-icons/fa';
 import Button from './Button';
 
 const Gamecard = ({
@@ -10,10 +10,12 @@ const Gamecard = ({
 	setGames,
 	wishlist,
 	setWishlist,
+	cart,
+	setCart,
 }) => {
-	// useEffect(() => {
-	// 	console.log(props.name, props.isLiked);
-	// }, [props.isLiked]);
+	useEffect(() => {
+		console.log(props.name, props.inCart);
+	}, [props.inCart]);
 
 	// useEffect(() => {
 	// 	console.log(wishlist);
@@ -38,6 +40,26 @@ const Gamecard = ({
 		);
 	};
 
+	const toggleCart = (name, inCart) => {
+		// ADD GAME TO CART IF NOT ALREADY PRESENT
+		if (!cart.includes(name)) {
+			setCart([...cart, name]);
+		}
+
+		// TOGGLE inCart STATUS OF GAME
+		setGames(
+			games.map((game) => {
+				if (game.name === name) {
+					return {
+						...game,
+						inCart: !inCart,
+					};
+				}
+				return game;
+			})
+		);
+	};
+
 	return (
 		<Card>
 			<img src={images[0]} alt='cover' />
@@ -51,7 +73,21 @@ const Gamecard = ({
 					<FaHeart size={14} id='heart' />
 				</button>
 			</div>
-			<Button img={<FaPlus size={14} />} text='Add To Cart' />
+			{/* ALTER DISPLAY IF GAME IS IN CART */}
+			{props.inCart ? (
+				<Button
+					className='in-cart'
+					img={<FaCheck size={14} style={{ color: 'lightgreen' }} />}
+					disabled
+				/>
+			) : (
+				<Button
+					className='not-in-cart'
+					img={<FaPlus size={14} />}
+					text='Add To Cart'
+					onClick={() => toggleCart(props.name, props.inCart)}
+				/>
+			)}
 		</Card>
 	);
 };
@@ -91,6 +127,10 @@ const Card = styled.div`
 		&:hover {
 			border: none;
 		}
+	}
+
+	button.in-cart {
+		color: green !important;
 	}
 
 	#add-to-wishlist {

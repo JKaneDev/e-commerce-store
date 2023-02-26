@@ -12,6 +12,8 @@ const CardWrapper = ({
 	setWishlist,
 	view,
 	setView,
+	cart,
+	setCart,
 }) => {
 	useEffect(() => {
 		games.forEach((game) => {
@@ -54,6 +56,8 @@ const CardWrapper = ({
 						selected={game.selected}
 						wishlist={wishlist}
 						setWishlist={setWishlist}
+						cart={cart}
+						setCart={setCart}
 					/>
 				);
 			});
@@ -74,6 +78,8 @@ const CardWrapper = ({
 						selected={game.selected}
 						wishlist={wishlist}
 						setWishlist={setWishlist}
+						cart={cart}
+						setCart={setCart}
 					/>
 				);
 			});
@@ -92,6 +98,8 @@ const CardWrapper = ({
 						selected={game.selected}
 						wishlist={wishlist}
 						setWishlist={setWishlist}
+						cart={cart}
+						setCart={setCart}
 					/>
 				);
 			});
@@ -111,6 +119,8 @@ const CardWrapper = ({
 						selected={game.selected}
 						wishlist={wishlist}
 						setWishlist={setWishlist}
+						cart={cart}
+						setCart={setCart}
 					/>
 				);
 			});
@@ -119,8 +129,6 @@ const CardWrapper = ({
 
 	// RENDER TO DOM
 	return (
-		// console.log('setView:', setView),
-		// console.log('view:', view),
 		<StyledCardWrapper>
 			<h1>Trending and highly rated</h1>
 			<div className='filter-view'>

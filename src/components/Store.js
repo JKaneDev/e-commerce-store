@@ -2,7 +2,16 @@ import Link from 'react-router-dom';
 import Sidenav from './Sidenav';
 import CardWrapper from './CardWrapper';
 
-const Store = ({ games, setGames, wishlist, setWishlist, view, setView }) => {
+const Store = ({
+	games,
+	setGames,
+	wishlist,
+	setWishlist,
+	view,
+	setView,
+	cart,
+	setCart,
+}) => {
 	return (
 		<>
 			<Sidenav wishlist={wishlist} view={view} setView={setView} />
@@ -13,6 +22,8 @@ const Store = ({ games, setGames, wishlist, setWishlist, view, setView }) => {
 				setGames={setGames}
 				wishlist={wishlist}
 				setWishlist={setWishlist}
+				cart={cart}
+				setCart={setCart}
 			/>
 		</>
 	);
