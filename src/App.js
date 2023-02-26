@@ -4,7 +4,8 @@ import games from './utils/games';
 import styled from 'styled-components';
 import Home from './components/Home';
 import Store from './components/Store';
-import Nav from './components/Nav';
+import HomeNav from './components/HomeNav';
+import StoreNav from './components/StoreNav';
 
 function App() {
 	// STATE VARIABLES
@@ -16,7 +17,10 @@ function App() {
 	const location = useLocation();
 	return (
 		<>
-			<Nav />
+			{location.pathname === '/' && <HomeNav />}
+			{location.pathname === '/store' && (
+				<StoreNav view={view} setView={setView} />
+			)}
 			<StyledMain location={location}>
 				<Routes>
 					<Route path='/' element={<Home />} />
