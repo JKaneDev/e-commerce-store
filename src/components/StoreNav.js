@@ -5,8 +5,9 @@ import styled from 'styled-components';
 import { TiShoppingCart } from 'react-icons/ti';
 import { RiShoppingBagLine } from 'react-icons/ri';
 import { FaSearch, FaStreetView } from 'react-icons/fa';
+import Cart from './Cart';
 
-const StoreNav = ({ view, setView }) => {
+const StoreNav = ({ view, setView, showCart, setShowCart }) => {
 	// FOCUS INPUT ON SEARCH ICON CLICK
 	const inputRef = useRef(null);
 	const handleIconClick = () => inputRef.current.focus();
@@ -15,6 +16,10 @@ const StoreNav = ({ view, setView }) => {
 	const handleSearchInput = (value) => {
 		const updatedView = value;
 		setView(updatedView);
+	};
+
+	const toggleCart = () => {
+		setShowCart(!showCart);
 	};
 
 	return (
@@ -29,7 +34,15 @@ const StoreNav = ({ view, setView }) => {
 					ref={inputRef}
 				></input>
 			</div>
-			<Button img={<RiShoppingBagLine size={28} />} text='Cart: 0' />
+			{showCart ? (
+				<Cart showCart={showCart} setShowCart={setShowCart} />
+			) : (
+				<Button
+					img={<RiShoppingBagLine size={28} />}
+					text='Cart: 0'
+					onClick={toggleCart}
+				/>
+			)}
 		</StyledNav>
 	);
 };

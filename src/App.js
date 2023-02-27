@@ -13,6 +13,7 @@ function App() {
 	const [view, setView] = useState('');
 	const [wishlist, setWishlist] = useState([]);
 	const [cart, setCart] = useState([]);
+	const [showCart, setShowCart] = useState(false);
 
 	// RENDERING
 	const location = useLocation();
@@ -21,7 +22,12 @@ function App() {
 			{/* RENDER DIFFERENT NAV DEPENDING ON ROUTE */}
 			{location.pathname === '/' && <HomeNav />}
 			{location.pathname === '/store' && (
-				<StoreNav view={view} setView={setView} />
+				<StoreNav
+					view={view}
+					setView={setView}
+					showCart={showCart}
+					setShowCart={setShowCart}
+				/>
 			)}
 			<StyledMain location={location}>
 				<Routes>
@@ -38,6 +44,7 @@ function App() {
 								setWishlist={setWishlist}
 								cart={cart}
 								setCart={setCart}
+								showCart={showCart}
 							/>
 						}
 					/>

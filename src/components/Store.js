@@ -1,6 +1,7 @@
 import Link from 'react-router-dom';
 import Sidenav from './Sidenav';
 import CardWrapper from './CardWrapper';
+import Cart from './Cart';
 
 const Store = ({
 	games,
@@ -11,6 +12,7 @@ const Store = ({
 	setView,
 	cart,
 	setCart,
+	showCart,
 }) => {
 	return (
 		<>
