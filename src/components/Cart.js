@@ -1,15 +1,13 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { FaArrowRight } from 'react-icons/fa';
 import Button from './Button';
 import CartItem from './CartItem';
 
 const Cart = ({ showCart, setShowCart, cart, setCart }) => {
-	const cartRef = useRef(null);
+	const [cartTotal, setCartTotal] = useState();
 
-	useEffect(() => {
-		console.log(cart);
-	}, [cart]);
+	const cartRef = useRef(null);
 
 	// CLOSE CART BY CLICKING ON OTHER PART OF THE DOM
 	useEffect(() => {
@@ -38,13 +36,23 @@ const Cart = ({ showCart, setShowCart, cart, setCart }) => {
 		setCart(updatedCart);
 	};
 
+	const removeAllCartItems = () => {
+		setCart([]);
+	};
+
+	useEffect(() => {
+		let total = 0;
+		cart.forEach((item) => (total += Number(item[1])));
+		setCartTotal(total);
+	}, [cart]);
+
 	return (
 		<>
 			<Overlay />
 			<StyledCart ref={cartRef}>
 				<div id='first-div'>
 					<h3 className='.title'>{cart.length || 'No'} Games In Cart</h3>
-					<Button text='Clear' />
+					<Button text='Clear' onClick={removeAllCartItems} />
 				</div>
 				<div className='games-in-cart'>
 					{cart.map((item) => (
@@ -57,7 +65,7 @@ const Cart = ({ showCart, setShowCart, cart, setCart }) => {
 					))}
 				</div>
 				<div className='footer'>
-					<span>Total: $0.00</span>
+					<span>Total: ${cartTotal || '0.00'}</span>
 					<button>
 						<p>Checkout</p>
 						<FaArrowRight size={14} />
