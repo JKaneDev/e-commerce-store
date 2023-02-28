@@ -34,8 +34,7 @@ const Cart = ({ showCart, setShowCart, cart, setCart }) => {
 	}, [showCart]);
 
 	const removeCartItem = (name) => {
-		const updatedCart = cart.filter((item) => item.name !== name);
-		console.log('updated cart:', updatedCart);
+		const updatedCart = cart.filter((item) => item[0] !== name);
 		setCart(updatedCart);
 	};
 
@@ -53,7 +52,7 @@ const Cart = ({ showCart, setShowCart, cart, setCart }) => {
 							key={item[0]}
 							name={item[0]}
 							price={item[1]}
-							removeCartItem={() => removeCartItem(item.name)}
+							removeCartItem={() => removeCartItem(item[0])}
 						/>
 					))}
 				</div>
@@ -99,6 +98,9 @@ const StyledCart = styled.section`
 		margin-bottom: auto;
 		align-items: center;
 		justify-content: flex-start;
+		overflow: scroll;
+		z-index: 1000;
+		height: calc(100vh - 140px);
 	}
 
 	#first-div {
@@ -139,6 +141,8 @@ const StyledCart = styled.section`
 		padding: 2rem 2rem 2.5rem 4rem;
 		display: flex;
 		align-items: center;
+		z-index: 1001;
+		background-color: black;
 
 		span {
 			margin-right: auto;

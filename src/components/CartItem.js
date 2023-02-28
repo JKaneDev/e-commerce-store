@@ -21,14 +21,18 @@ const StyledCartItem = styled.span`
 	gap: 0.5rem;
 	align-items: center;
 	width: 88%;
-	height: 50px;
+	height: 60px;
 	padding: 1rem 2rem;
 	letter-spacing: 0.1rem;
 	background-color: #262626;
 	border-radius: 6px;
 
 	.name {
-		margin-right: auto;
+		line-height: 1.5rem;
+	}
+
+	.price {
+		padding-left: 2rem;
 	}
 
 	.remove {
