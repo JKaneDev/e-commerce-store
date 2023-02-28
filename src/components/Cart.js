@@ -2,9 +2,14 @@ import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { FaArrowRight } from 'react-icons/fa';
 import Button from './Button';
+import CartItem from './CartItem';
 
-const Cart = ({ showCart, setShowCart }) => {
+const Cart = ({ showCart, setShowCart, cart, setCart }) => {
 	const cartRef = useRef(null);
+
+	useEffect(() => {
+		console.log(cart);
+	}, [cart]);
 
 	// CLOSE CART BY CLICKING ON OTHER PART OF THE DOM
 	useEffect(() => {
@@ -28,15 +33,30 @@ const Cart = ({ showCart, setShowCart }) => {
 		};
 	}, [showCart]);
 
+	const removeCartItem = (name) => {
+		const updatedCart = cart.filter((item) => item.name !== name);
+		console.log('updated cart:', updatedCart);
+		setCart(updatedCart);
+	};
+
 	return (
 		<>
 			<Overlay />
 			<StyledCart ref={cartRef}>
-				<div>
-					<h3>No Games In Cart</h3>
+				<div id='first-div'>
+					<h3 className='.title'>{cart.length || 'No'} Games In Cart</h3>
 					<Button text='Clear' />
 				</div>
-				<div className='games-in-cart'></div>
+				<div className='games-in-cart'>
+					{cart.map((item) => (
+						<CartItem
+							key={item[0]}
+							name={item[0]}
+							price={item[1]}
+							removeCartItem={() => removeCartItem(item.name)}
+						/>
+					))}
+				</div>
 				<div className='footer'>
 					<span>Total: $0.00</span>
 					<button>
@@ -61,23 +81,32 @@ const Overlay = styled.div`
 	z-index: 998;
 `;
 
-const StyledCart = styled.div`
-	display: flex;
-	flex-direction: column;
+const StyledCart = styled.section`
+	display: grid;
+	grid-template-rows: 70px 1fr 70px;
 	background-color: rgb(0, 0, 0, 0.9);
-	height: 101vh;
+	height: 100vh;
 	width: 325px;
 	z-index: 999;
 	position: fixed;
 	top: 0;
 	right: 0;
 
-	div:nth-of-type(1) {
+	.games-in-cart {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		margin-bottom: auto;
+		align-items: center;
+		justify-content: flex-start;
+	}
+
+	#first-div {
 		margin-bottom: auto;
 		padding: 2.5rem 2rem;
 		display: flex;
 		align-items: center;
-		background-color: black;
+		background-color: black !important;
 		height: 50px;
 		border-top-left-radius: 8px;
 		border-top-right-radius: 8px;
@@ -86,7 +115,7 @@ const StyledCart = styled.div`
 			color: white;
 		}
 
-		h3 {
+		.title {
 			margin-right: auto;
 			padding-left: 1rem;
 			letter-spacing: 0.1rem;
@@ -96,7 +125,6 @@ const StyledCart = styled.div`
 			margin-left: auto;
 			border: none;
 			background-color: inherit;
-			padding: 0;
 			padding-right: 1rem;
 			width: 60px;
 			letter-spacing: 0.15rem;

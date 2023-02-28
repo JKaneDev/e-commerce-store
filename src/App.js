@@ -26,6 +26,7 @@ function App() {
 					view={view}
 					setView={setView}
 					cart={cart}
+					setCart={setCart}
 					showCart={showCart}
 					setShowCart={setShowCart}
 				/>

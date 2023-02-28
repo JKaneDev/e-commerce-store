@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import Button from './Button';
 import styled from 'styled-components';
 import { FaThLarge } from 'react-icons/fa';
@@ -15,19 +14,9 @@ const CardWrapper = ({
 	cart,
 	setCart,
 }) => {
-	useEffect(() => {
-		games.forEach((game) => {
-			if (game.isLiked === true) {
-				console.log(game.name);
-				console.log(wishlist);
-			}
-		});
-	}, [wishlist]);
-
 	// RENDER GAME CARD FOR EACH GAME
-
-	// GENRE FILTER
 	const renderGames = () => {
+		// GENRE FILTER
 		const filteredGames = games.filter(
 			(game) => game.genre.toLowerCase() === view
 		);

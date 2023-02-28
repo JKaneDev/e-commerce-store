@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { createRef, useEffect } from 'react';
 import { FaPlus, FaHeart, FaCheck } from 'react-icons/fa';
 import Button from './Button';
 
@@ -13,19 +12,12 @@ const Gamecard = ({
 	cart,
 	setCart,
 }) => {
-	useEffect(() => {
-		console.log(props.name, props.inCart);
-	}, [props.inCart]);
-
-	// useEffect(() => {
-	// 	console.log(wishlist);
-	// }, [wishlist]);
-
 	const toggleWishlist = (name, isLiked) => {
 		// ADD ITEM TO WISHLIST IF NOT ALREADY PRESENT, REMOVE IF IT IS
 		wishlist.includes(name)
 			? setWishlist(wishlist.filter((game) => game !== name))
 			: setWishlist([...wishlist, name]);
+
 		// TOGGLE isLiked STATUS OF GAME
 		setGames(
 			games.map((game) => {
@@ -40,10 +32,10 @@ const Gamecard = ({
 		);
 	};
 
-	const toggleCart = (name, inCart) => {
+	const toggleCart = (name, price, inCart) => {
 		// ADD GAME TO CART IF NOT ALREADY PRESENT
 		if (!cart.includes(name)) {
-			setCart([...cart, name]);
+			setCart([...cart, [name, price]]);
 		}
 
 		// TOGGLE inCart STATUS OF GAME
@@ -85,7 +77,7 @@ const Gamecard = ({
 					className='not-in-cart'
 					img={<FaPlus size={14} />}
 					text='Add To Cart'
-					onClick={() => toggleCart(props.name, props.inCart)}
+					onClick={() => toggleCart(props.name, props.price, props.inCart)}
 				/>
 			)}
 		</Card>
