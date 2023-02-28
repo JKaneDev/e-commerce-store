@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Button = ({ img, text, onClick }) => {
+const Button = ({ img, text, onClick, cartLength }) => {
 	return (
 		<StyledButton onClick={onClick}>
 			{img}
@@ -30,3 +30,5 @@ const StyledButton = styled.button`
 		transform: translateY(-2.5%);
 	}
 `;
+
+// **MAKE SEPARATE CART BUTTON COMPONENT**

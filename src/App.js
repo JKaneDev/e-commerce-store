@@ -25,6 +25,7 @@ function App() {
 				<StoreNav
 					view={view}
 					setView={setView}
+					cart={cart}
 					showCart={showCart}
 					setShowCart={setShowCart}
 				/>
