@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import { AiOutlineDelete } from 'react-icons/ai';
 
-const CartItem = ({ name, price, removeCartItem }) => {
+const CartItem = ({ name, id, price, removeCartItem }) => {
 	return (
 		<StyledCartItem>
 			<span className='name'>{name}</span>
 			<span className='price'>${price}</span>
-			<button onClick={removeCartItem} className='remove'>
+			<button onClick={() => removeCartItem(id, false)} className='remove'>
 				<AiOutlineDelete size={15} />
 			</button>
 		</StyledCartItem>

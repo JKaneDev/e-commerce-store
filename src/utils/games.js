@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 const games = [
 	{
 		name: 'Cyberpunk 2077',
@@ -15,7 +17,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 78,
-		id: 0,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188604/cyberpunk_n6jitl.jpg',
 		footage: [
@@ -41,7 +43,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 71,
-		id: 1,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188621/battlefield_n0gd5a.jpg',
 		footage: [
@@ -67,7 +69,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 83,
-		id: 2,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188606/lis_ft0puo.jpg',
 		footage: [
@@ -93,7 +95,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 84,
-		id: 3,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658232678/mariokart_0_mhgbeg.jpg',
 		footage: [
@@ -120,7 +122,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 86,
-		id: 4,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188602/bioshockinfinite_qyo3pi.jpg',
 		footage: [
@@ -146,7 +148,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 81,
-		id: 5,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188622/anno_cbmzye.jpg',
 		footage: [
@@ -172,7 +174,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 92,
-		id: 6,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188613/rdr_fhqs3d.jpg',
 		footage: [
@@ -198,7 +200,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 90,
-		id: 7,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188606/horizon_jzlhsd.jpg',
 		footage: [
@@ -225,7 +227,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 90,
-		id: 8,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188604/gtav_x1ccio.jpg',
 		footage: [
@@ -251,7 +253,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 88,
-		id: 9,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658584215/skyrim_js5pmg.jpg',
 		footage: [
@@ -278,7 +280,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 76,
-		id: 10,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188601/warframe_kghu8g.jpg',
 		footage: [
@@ -304,7 +306,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 84,
-		id: 11,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188606/minecraft_iuejtm.jpg',
 		footage: [
@@ -331,7 +333,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 82,
-		id: 12,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188610/riseofthetombraider_uq2q6t.jpg',
 		footage: [
@@ -358,7 +360,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 83,
-		id: 13,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188608/metro_o45ytf.jpg',
 		footage: [
@@ -384,7 +386,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 81,
-		id: 14,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188609/terraria_yb3iuc.jpg',
 		footage: [
@@ -411,7 +413,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 83,
-		id: 15,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188608/rocketleague_on6yqd.jpg',
 		footage: [
@@ -437,7 +439,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 95,
-		id: 16,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188610/thewitcher_tllr60.jpg',
 		footage: [
@@ -463,7 +465,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 81,
-		id: 17,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188605/hitman_pqhnm6.jpg',
 		footage: [
@@ -489,7 +491,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 80,
-		id: 18,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188603/fallout_kuxjw3.jpg',
 		footage: [
@@ -516,7 +518,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 90,
-		id: 19,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188606/gtasanandreas_xkkyyp.jpg',
 		footage: [
@@ -543,7 +545,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 70,
-		id: 20,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188609/golfwithyourfriends_rxrsbv.jpg',
 		footage: [
@@ -569,7 +571,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 82,
-		id: 21,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188605/heavyrain_bljnwv.jpg',
 		footage: [
@@ -595,7 +597,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 79,
-		id: 22,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188603/dota_gdjxqx.jpg',
 		footage: [
@@ -621,7 +623,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 92,
-		id: 23,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188606/portal2_eugfiq.jpg',
 		footage: [
@@ -647,7 +649,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 82,
-		id: 24,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188603/civilization_jcuqap.jpg',
 		footage: [
@@ -673,7 +675,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 94,
-		id: 25,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188602/godofwar_cbqzk1.jpg',
 		footage: [
@@ -700,7 +702,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 80,
-		id: 26,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188603/fifa_zb6ook.jpg',
 		footage: [
@@ -726,7 +728,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 91,
-		id: 27,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188604/halflife_fiorjc.jpg',
 		footage: [
@@ -753,7 +755,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 86,
-		id: 28,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188600/twd_dmycxx.jpg',
 		footage: [
@@ -779,7 +781,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 85,
-		id: 29,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188601/crusaderkings_fpz1te.jpg',
 		footage: [
@@ -805,7 +807,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 82,
-		id: 30,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188600/csgo_o9whdd.jpg',
 		footage: [
@@ -831,7 +833,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 89,
-		id: 31,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188602/detroit_a4kqkx.jpg',
 		footage: [
@@ -857,7 +859,7 @@ const games = [
 		isHovered: false,
 		isLiked: false,
 		rating: 85,
-		id: 32,
+		id: uuidv4(),
 		cover:
 			'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188613/tombraider_qx2xiy.jpg',
 		footage: [

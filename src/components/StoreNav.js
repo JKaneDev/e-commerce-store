@@ -8,7 +8,16 @@ import { FaSearch, FaStreetView } from 'react-icons/fa';
 import Cart from './Cart';
 import CartBtn from './CartBtn';
 
-const StoreNav = ({ view, setView, cart, setCart, showCart, setShowCart }) => {
+const StoreNav = ({
+	view,
+	setView,
+	cart,
+	setCart,
+	showCart,
+	setShowCart,
+	games,
+	setGames,
+}) => {
 	// FOCUS INPUT ON SEARCH ICON CLICK
 	const inputRef = useRef(null);
 	const handleIconClick = () => inputRef.current.focus();
@@ -41,6 +50,8 @@ const StoreNav = ({ view, setView, cart, setCart, showCart, setShowCart }) => {
 					setShowCart={setShowCart}
 					cart={cart}
 					setCart={setCart}
+					games={games}
+					setGames={setGames}
 				/>
 			) : (
 				<CartBtn

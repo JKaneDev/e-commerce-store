@@ -4,10 +4,14 @@ import { FaArrowRight } from 'react-icons/fa';
 import Button from './Button';
 import CartItem from './CartItem';
 
-const Cart = ({ showCart, setShowCart, cart, setCart }) => {
+const Cart = ({ showCart, setShowCart, cart, setCart, games, setGames }) => {
 	const [cartTotal, setCartTotal] = useState();
 
 	const cartRef = useRef(null);
+
+	useEffect(() => {
+		console.log(cart);
+	}, [cart]);
 
 	// CLOSE CART BY CLICKING ON OTHER PART OF THE DOM
 	useEffect(() => {
@@ -31,9 +35,26 @@ const Cart = ({ showCart, setShowCart, cart, setCart }) => {
 		};
 	}, [showCart]);
 
-	const removeCartItem = (name) => {
-		const updatedCart = cart.filter((item) => item[0] !== name);
+	const removeCartItem = (id, inCart) => {
+		const updatedCart = cart.filter((item) => item[2] !== id);
 		setCart(updatedCart);
+
+		const updatedGames = games.map((game) => {
+			if (game.id === id) {
+				return {
+					...game,
+					inCart: inCart,
+				};
+			}
+
+			const cartItem = updatedCart.find((item) => item[0] === game.name);
+			if (cartItem) {
+				return { ...game, inCart: true };
+			} else {
+				return { ...game, inCart: false };
+			}
+		});
+		setGames(updatedGames);
 	};
 
 	const removeAllCartItems = () => {
@@ -43,7 +64,7 @@ const Cart = ({ showCart, setShowCart, cart, setCart }) => {
 	useEffect(() => {
 		let total = 0;
 		cart.forEach((item) => (total += Number(item[1])));
-		setCartTotal(total);
+		setCartTotal(total.toFixed(2));
 	}, [cart]);
 
 	return (
@@ -57,10 +78,11 @@ const Cart = ({ showCart, setShowCart, cart, setCart }) => {
 				<div className='games-in-cart'>
 					{cart.map((item) => (
 						<CartItem
-							key={item[0]}
+							key={item[2]}
+							id={item[2]}
 							name={item[0]}
 							price={item[1]}
-							removeCartItem={() => removeCartItem(item[0])}
+							removeCartItem={removeCartItem}
 						/>
 					))}
 				</div>
@@ -108,7 +130,12 @@ const StyledCart = styled.section`
 		justify-content: flex-start;
 		overflow: scroll;
 		z-index: 1000;
+		width: 340px;
 		height: calc(100vh - 140px);
+
+		&::-webkit-scrollbar {
+			background-color: black;
+		}
 	}
 
 	#first-div {
@@ -143,10 +170,9 @@ const StyledCart = styled.section`
 	}
 
 	.footer {
-		margin-top: auto;
 		display: flex;
 		align-items: center;
-		padding: 2rem 2rem 2.5rem 4rem;
+		padding: 2rem 2rem 2rem 4rem;
 		display: flex;
 		align-items: center;
 		z-index: 1001;

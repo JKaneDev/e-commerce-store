@@ -29,6 +29,8 @@ function App() {
 					setCart={setCart}
 					showCart={showCart}
 					setShowCart={setShowCart}
+					games={games}
+					setGames={setGames}
 				/>
 			)}
 			<StyledMain location={location}>
