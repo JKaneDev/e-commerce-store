@@ -20,7 +20,9 @@ const About = ({ allGames, toggleWishlist, toggleCart }) => {
 				</Link>
 				<h1>{game.name}</h1>
 			</div>
+
 			<Carousel images={game.footage} />
+
 			<Info
 				name={game.name}
 				info={game.desc}
@@ -47,6 +49,10 @@ const About = ({ allGames, toggleWishlist, toggleCart }) => {
 export default About;
 
 const StyledAbout = styled.div`
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 100px 1fr 1fr 80px;
+	padding: 0 4rem;
 	min-height: 100vh;
 	width: 100vw;
 
@@ -70,8 +76,6 @@ const StyledAbout = styled.div`
 		}
 	}
 
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: 100px 1fr 1fr 80px;
-	padding: 0 4rem;
+	.carousel-container {
+	}
 `;
