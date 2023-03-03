@@ -54,6 +54,15 @@ const Cart = ({ showCart, setShowCart, cart, setCart, games, setGames }) => {
 	};
 
 	const removeAllCartItems = () => {
+		const updatedGames = games.map((game) => {
+			return {
+				...game,
+				inCart: false,
+			};
+		});
+
+		setGames(updatedGames);
+
 		setCart([]);
 	};
 
