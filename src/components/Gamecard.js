@@ -2,65 +2,18 @@ import styled from 'styled-components';
 import { FaPlus, FaHeart, FaCheck } from 'react-icons/fa';
 import Button from './Button';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const Gamecard = ({
-	props,
-	images,
-	games,
-	setGames,
-	wishlist,
-	setWishlist,
-	cart,
-	setCart,
-	inCart,
-}) => {
-	useEffect(() => {
-		console.log(props.name, props.inCart);
-	}, [props.inCart]);
-
-	const toggleWishlist = (name, isLiked) => {
-		// ADD ITEM TO WISHLIST IF NOT ALREADY PRESENT, REMOVE IF IT IS
-		wishlist.includes(name)
-			? setWishlist(wishlist.filter((game) => game !== name))
-			: setWishlist([...wishlist, name]);
-
-		// TOGGLE isLiked STATUS OF GAME
-		setGames(
-			games.map((game) => {
-				if (game.name === name) {
-					return {
-						...game,
-						isLiked: !isLiked,
-					};
-				}
-				return game;
-			})
-		);
-	};
-
-	const toggleCart = (name, price, inCart, id) => {
-		// TOGGLE inCart STATUS OF GAME
-		setGames(
-			games.map((game) => {
-				if (game.name === name) {
-					return {
-						...game,
-						inCart: !inCart,
-					};
-				}
-				return game;
-			})
-		);
-
-		// ADD GAME TO CART IF NOT ALREADY PRESENT
-		if (!cart.includes(name)) {
-			setCart([...cart, [name, price, id]]);
-		}
+const Gamecard = ({ props, images, toggleWishlist, toggleCart }) => {
+	// HANDLE NAVIGATION TO INFO PAGES
+	const navigate = useNavigate();
+	const handleNavigation = () => {
+		navigate(`/games/${props.name}`);
 	};
 
 	return (
 		<Card>
-			<img src={images[0]} alt='cover' />
+			<img src={images[0]} alt='cover' onClick={handleNavigation} />
 			<div>
 				<p id='name'>{props.name}</p>|<p>${props.price}</p>
 				<button

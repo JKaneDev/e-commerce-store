@@ -9,10 +9,6 @@ const Cart = ({ showCart, setShowCart, cart, setCart, games, setGames }) => {
 
 	const cartRef = useRef(null);
 
-	useEffect(() => {
-		console.log(cart);
-	}, [cart]);
-
 	// CLOSE CART BY CLICKING ON OTHER PART OF THE DOM
 	useEffect(() => {
 		const handleCloseCart = (e) => {

@@ -13,6 +13,7 @@ const CardWrapper = ({
 	setView,
 	cart,
 	setCart,
+	toggleCart,
 }) => {
 	// RENDER GAME CARD FOR EACH GAME
 	const renderGames = () => {
@@ -47,6 +48,7 @@ const CardWrapper = ({
 						setWishlist={setWishlist}
 						cart={cart}
 						setCart={setCart}
+						toggleCart={toggleCart}
 					/>
 				);
 			});
@@ -69,6 +71,7 @@ const CardWrapper = ({
 						setWishlist={setWishlist}
 						cart={cart}
 						setCart={setCart}
+						toggleCart={toggleCart}
 					/>
 				);
 			});
@@ -110,6 +113,7 @@ const CardWrapper = ({
 						setWishlist={setWishlist}
 						cart={cart}
 						setCart={setCart}
+						toggleCart={toggleCart}
 					/>
 				);
 			});

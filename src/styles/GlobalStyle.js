@@ -20,6 +20,10 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'Helvetica', sans-serif
     }
 
+    body::-webkit-scrollbar {
+      display: none;
+    }
+
     header {
         font-size: 1.5rem;
       }

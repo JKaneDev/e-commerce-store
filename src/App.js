@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Store from './components/Store';
 import HomeNav from './components/HomeNav';
 import StoreNav from './components/StoreNav';
+import About from './components/info-components/About';
 
 function App() {
 	// STATE VARIABLES
@@ -14,6 +15,46 @@ function App() {
 	const [wishlist, setWishlist] = useState([]);
 	const [cart, setCart] = useState([]);
 	const [showCart, setShowCart] = useState(false);
+
+	const toggleWishlist = (name, isLiked) => {
+		// ADD ITEM TO WISHLIST IF NOT ALREADY PRESENT, REMOVE IF IT IS
+		wishlist.includes(name)
+			? setWishlist(wishlist.filter((game) => game !== name))
+			: setWishlist([...wishlist, name]);
+
+		// TOGGLE isLiked STATUS OF GAME
+		setGames(
+			allGames.map((game) => {
+				if (game.name === name) {
+					return {
+						...game,
+						isLiked: !isLiked,
+					};
+				}
+				return game;
+			})
+		);
+	};
+
+	const toggleCart = (name, price, inCart, id) => {
+		// TOGGLE inCart STATUS OF GAME
+		setGames(
+			allGames.map((game) => {
+				if (game.name === name) {
+					return {
+						...game,
+						inCart: !inCart,
+					};
+				}
+				return game;
+			})
+		);
+
+		// ADD GAME TO CART IF NOT ALREADY PRESENT
+		if (!cart.includes(name)) {
+			setCart([...cart, [name, price, id]]);
+		}
+	};
 
 	// RENDERING
 	const location = useLocation();
@@ -49,6 +90,21 @@ function App() {
 								cart={cart}
 								setCart={setCart}
 								showCart={showCart}
+								toggleCart={toggleCart}
+							/>
+						}
+					/>
+					<Route
+						path='/games/:name'
+						element={
+							<About
+								allGames={allGames}
+								wishlist={wishlist}
+								setWishlist={setWishlist}
+								cart={cart}
+								setCart={setCart}
+								toggleWishlist={toggleWishlist}
+								toggleCart={toggleCart}
 							/>
 						}
 					/>
@@ -73,6 +129,17 @@ const StyledMain = styled.main`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+  `}
+
+	// ABOUT RENDERED
+	${({ location }) =>
+		location.pathname === '/games/:name' &&
+		`
+  	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
   `}
 
 	// STORE RENDERED
