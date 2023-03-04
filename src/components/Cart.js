@@ -75,7 +75,7 @@ const Cart = ({ showCart, setShowCart, cart, setCart, games, setGames }) => {
 	return (
 		<>
 			<Overlay />
-			<StyledCart ref={cartRef}>
+			<StyledCart ref={cartRef} data-testid='cart'>
 				<div id='first-div'>
 					<h3 className='.title'>{cart.length || 'No'} Games In Cart</h3>
 					<Button text='Clear' onClick={removeAllCartItems} />

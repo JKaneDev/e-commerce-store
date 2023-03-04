@@ -49,6 +49,7 @@ const StoreNav = ({
 					setCart={setCart}
 					games={games}
 					setGames={setGames}
+					data-testid='cart'
 				/>
 			) : (
 				<CartBtn
