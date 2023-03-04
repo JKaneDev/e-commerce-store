@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { FaPlus, FaHeart, FaCheck } from 'react-icons/fa';
 import Button from './Button';
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Gamecard = ({ props, images, toggleWishlist, toggleCart }) => {

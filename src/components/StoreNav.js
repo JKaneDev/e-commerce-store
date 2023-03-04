@@ -1,10 +1,7 @@
-import { Link } from 'react-router-dom';
 import { useRef } from 'react';
-import Button from './Button';
 import styled from 'styled-components';
-import { TiShoppingCart } from 'react-icons/ti';
 import { RiShoppingBagLine } from 'react-icons/ri';
-import { FaSearch, FaStreetView } from 'react-icons/fa';
+import { FaSearch } from 'react-icons/fa';
 import Cart from './Cart';
 import CartBtn from './CartBtn';
 

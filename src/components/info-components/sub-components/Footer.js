@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { FaHeart, FaPlus, FaCheck } from 'react-icons/fa';
 import styled from 'styled-components';
 import Button from '../../Button';
@@ -12,10 +11,6 @@ const Footer = ({
 	inCart,
 	id,
 }) => {
-	useEffect(() => {
-		console.log(name, 'In Cart: ', inCart, 'Is Liked: ', isLiked);
-	}, [inCart]);
-
 	return (
 		<StyledFooter>
 			<div>

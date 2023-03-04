@@ -3,7 +3,6 @@ import Button from './Button';
 import styled from 'styled-components';
 import { TiShoppingCart } from 'react-icons/ti';
 import { SiGithub } from 'react-icons/si';
-import { RiShoppingBagLine } from 'react-icons/ri';
 
 const HomeNav = () => {
 	return (
@@ -11,10 +10,9 @@ const HomeNav = () => {
 			<Link to='/store'>
 				<Button img={<TiShoppingCart size={28} />} text='Browse' />
 			</Link>
-			<a href='https://github.com/JKaneDev' target='_blank'>
+			<a href='https://github.com/JKaneDev' target='_blank' rel='noreferrer'>
 				<Button img={<SiGithub size={28} />} text='JKaneDev' />
 			</a>
-			<Button img={<RiShoppingBagLine size={28} />} text='Cart: 0' />
 		</StyledNav>
 	);
 };

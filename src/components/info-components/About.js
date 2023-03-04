@@ -3,7 +3,6 @@ import Carousel from './sub-components/Carousel';
 import Info from './sub-components/Info';
 import Footer from './sub-components/Footer';
 import Button from '../Button';
-import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { IoArrowBack } from 'react-icons/io5';
 

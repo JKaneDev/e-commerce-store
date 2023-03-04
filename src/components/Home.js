@@ -22,13 +22,17 @@ const Home = () => {
 				<Link to='/store'>
 					<Button img={<RiArrowRightSLine size={18} />} text='Browse' />
 				</Link>
-				<a href='https://github.com/JKaneDev/e-commerce-store' target='_blank'>
+				<a
+					href='https://github.com/JKaneDev/e-commerce-store'
+					target='_blank'
+					rel='noreferrer'
+				>
 					<Button img={<SiGithub size={18} />} text='GitHub' />
 				</a>
-				<a href='https://twitter.com/?lang=en' target='_blank'>
+				<a href='https://twitter.com/?lang=en' target='_blank' rel='noreferrer'>
 					<Button img={<FaTwitter size={18} />} text='Twitter' />
 				</a>
-				<a href='https://uk.linkedin.com/' target='_blank'>
+				<a href='https://uk.linkedin.com/' target='_blank' rel='noreferrer'>
 					<Button img={<FaLinkedinIn size={18} />} text='LinkedIn' />
 				</a>
 			</HomeNav>
