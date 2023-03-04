@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import { SiSlides } from 'react-icons/si';
 
 const Carousel = ({ images }) => {
 	const [currentIndex, setCurrentIndex] = useState(0);
@@ -18,13 +17,15 @@ const Carousel = ({ images }) => {
 		setCurrentIndex(newIndex);
 	};
 
+	const iconSize = window.innerWidth > 800 ? 50 : 40;
+
 	return (
 		<StyledCarousel>
 			<div className='left-arrow' onClick={goToPrev}>
-				<FaChevronLeft size={60} />
+				<FaChevronLeft style={{ fontSize: iconSize }} />
 			</div>
 			<div className='right-arrow' onClick={goToNext}>
-				<FaChevronRight size={60} />
+				<FaChevronRight style={{ fontSize: iconSize }} />
 			</div>
 			<img src={images[currentIndex]} alt='slides' />
 		</StyledCarousel>
@@ -35,9 +36,12 @@ export default Carousel;
 
 const StyledCarousel = styled.div`
 	display: flex;
+	flex-direction: column;
+	align-items: center;
 	max-height: 700px;
 	border-radius: 16px;
 	margin-bottom: 2rem;
+	position: relative;
 
 	img {
 		width: 100%;
@@ -46,24 +50,34 @@ const StyledCarousel = styled.div`
 
 	.left-arrow,
 	.right-arrow {
-		z-index: 1;
 		position: absolute;
+		z-index: 1;
 		color: white;
 		transition: all 0.35s ease;
 
 		&:hover {
 			color: orange;
-			transform: translateX(-2.5%);
+
 			cursor: pointer;
 		}
 	}
 
 	.left-arrow {
-		top: 400px;
+		transform: translate(0, 50%);
+		top: 38%;
+		left: 15px;
 	}
 
 	.right-arrow {
-		top: 400px;
-		left: 1240px;
+		transform: translate(0, 50%);
+		top: 38%;
+		right: 15px;
+	}
+
+	@media (max-width: 800px) {
+		.left-arrow,
+		.right-arrow {
+			top: 32%;
+		}
 	}
 `;

@@ -65,7 +65,6 @@ const StyledInfo = styled.div`
 		background-color: #181818;
 		border-top-right-radius: 16px;
 		border-top-left-radius: 16px;
-		max-height: 400px;
 		overflow: scroll;
 
 		::-webkit-scrollbar {

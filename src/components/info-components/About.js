@@ -3,6 +3,7 @@ import Carousel from './sub-components/Carousel';
 import Info from './sub-components/Info';
 import Footer from './sub-components/Footer';
 import Button from '../Button';
+import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { IoArrowBack } from 'react-icons/io5';
 
@@ -21,27 +22,33 @@ const About = ({ allGames, toggleWishlist, toggleCart }) => {
 				<h1>{game.name}</h1>
 			</div>
 
-			<Carousel images={game.footage} />
+			<div className='carousel'>
+				<Carousel images={game.footage} />
+			</div>
 
-			<Info
-				name={game.name}
-				info={game.desc}
-				devs={game.developers}
-				genre={game.genre}
-				site={game.link}
-				platforms={game.platforms}
-				publishers={game.publishers}
-				release={game.release}
-			/>
-			<Footer
-				price={game.price}
-				isLiked={game.isLiked}
-				name={game.name}
-				toggleWishlist={toggleWishlist}
-				toggleCart={toggleCart}
-				inCart={game.inCart}
-				id={game.id}
-			/>
+			<div className='info'>
+				<Info
+					name={game.name}
+					info={game.desc}
+					devs={game.developers}
+					genre={game.genre}
+					site={game.link}
+					platforms={game.platforms}
+					publishers={game.publishers}
+					release={game.release}
+				/>
+			</div>
+			<div className='footer'>
+				<Footer
+					price={game.price}
+					isLiked={game.isLiked}
+					name={game.name}
+					toggleWishlist={toggleWishlist}
+					toggleCart={toggleCart}
+					inCart={game.inCart}
+					id={game.id}
+				/>
+			</div>
 		</StyledAbout>
 	);
 };
@@ -55,6 +62,38 @@ const StyledAbout = styled.div`
 	padding: 0 4rem;
 	min-height: 100vh;
 	width: 100vw;
+
+	@media (max-width: 1060px) {
+		display: flex;
+		flex-direction: column;
+
+		.header {
+			margin: 2rem;
+			font-size: 1.25ch;
+		}
+	}
+
+	@media (min-width: 1300px) {
+		grid-template-columns: 2fr 1fr;
+		grid-template-rows: 100px 1fr 80px;
+		gap: 1rem;
+
+		.header {
+			grid-column: 1 / -1;
+		}
+
+		.carousel {
+			grid-column: 1 / 2;
+		}
+
+		.info {
+			height: 100%;
+		}
+
+		.footer {
+			grid-column: 2 / 3;
+		}
+	}
 
 	.header {
 		display: flex;
@@ -74,8 +113,5 @@ const StyledAbout = styled.div`
 				color: orange;
 			}
 		}
-	}
-
-	.carousel-container {
 	}
 `;
