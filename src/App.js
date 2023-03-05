@@ -91,6 +91,7 @@ function App() {
 								setCart={setCart}
 								showCart={showCart}
 								toggleCart={toggleCart}
+								toggleWishlist={toggleWishlist}
 							/>
 						}
 					/>

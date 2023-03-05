@@ -11,6 +11,7 @@ const Store = ({
 	cart,
 	setCart,
 	toggleCart,
+	toggleWishlist,
 }) => {
 	return (
 		<>
@@ -25,6 +26,7 @@ const Store = ({
 				cart={cart}
 				setCart={setCart}
 				toggleCart={toggleCart}
+				toggleWishlist={toggleWishlist}
 			/>
 		</>
 	);
