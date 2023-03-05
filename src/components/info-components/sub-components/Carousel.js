@@ -80,4 +80,46 @@ const StyledCarousel = styled.div`
 			top: 32%;
 		}
 	}
+
+	@media (max-width: 600px) {
+		.left-arrow,
+		.right-arrow {
+			top: 34%;
+		}
+	}
+
+	@media (min-width: 600px) {
+		.left-arrow,
+		.right-arrow {
+			top: 36%;
+		}
+	}
+
+	@media (min-width: 680px) {
+		.left-arrow,
+		.right-arrow {
+			top: 38%;
+		}
+	}
+
+	@media (min-width: 800px) {
+		.left-arrow,
+		.right-arrow {
+			top: 40%;
+		}
+	}
+
+	@media (min-width: 1000px) {
+		.left-arrow,
+		.right-arrow {
+			top: 41%;
+		}
+	}
+
+	@media (min-width: 2000px) {
+		.left-arrow,
+		.right-arrow {
+			top: 43%;
+		}
+	}
 `;

@@ -120,6 +120,18 @@ const CardWrapper = ({
 		}
 	};
 
+	const showGridView = () => {
+		const renderedCards = document.getElementById('rendered-cards');
+		renderedCards.classList.remove('column-view');
+		renderedCards.classList.add('grid-view');
+	};
+
+	const showColumnView = () => {
+		const renderedCards = document.getElementById('rendered-cards');
+		renderedCards.classList.remove('grid-view');
+		renderedCards.classList.add('column-view');
+	};
+
 	// RENDER TO DOM
 	return (
 		<StyledCardWrapper>
@@ -128,8 +140,8 @@ const CardWrapper = ({
 				<Button text={`Filter by: ${view}`} />
 				<Button text='Clear Filter' onClick={() => setView('')} id='clear' />
 				<div className='view-options'>
-					<Button img={<FaThLarge size={28} />} />
-					<Button img={<MdViewStream size={28} />} />
+					<Button img={<FaThLarge size={28} />} onClick={showGridView} />
+					<Button img={<MdViewStream size={28} />} onClick={showColumnView} />
 				</div>
 			</div>
 			<div id='rendered-cards'>{renderGames()}</div>
@@ -207,6 +219,52 @@ const StyledCardWrapper = styled.div`
 
 		@media (min-width: 1200px) {
 			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	#rendered-cards.grid-view {
+		@media (max-width: 900px) {
+			grid-template-columns: 1fr;
+			padding: 2rem 0rem;
+		}
+
+		@media (min-width: 900px) {
+			grid-template-columns: repeat(2, 1fr);
+			padding: 2rem 0rem;
+		}
+
+		@media (min-width: 1100px) {
+			grid-template-columns: repeat(3, 1fr);
+			padding: 2rem 0rem;
+		}
+
+		@media (min-width: 2000px) {
+			grid-template-columns: repeat(4, 1fr);
+			padding: 2rem 0rem;
+		}
+	}
+
+	#rendered-cards.column-view {
+		grid-template-columns: 1fr;
+
+		@media (min-width: 900px) {
+			grid-template-columns: 1fr;
+			padding: 2rem 5rem;
+		}
+
+		@media (min-width: 1100px) {
+			grid-template-columns: 1fr;
+			padding: 2rem 15rem;
+		}
+
+		@media (min-width: 1600px) {
+			grid-template-columns: 1fr;
+			padding: 2rem 25rem;
+		}
+
+		@media (min-width: 2000px) {
+			grid-template-columns: 1fr;
+			padding: 2rem 35rem;
 		}
 	}
 `;

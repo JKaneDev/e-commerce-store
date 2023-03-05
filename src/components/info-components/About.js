@@ -70,6 +70,10 @@ const StyledAbout = styled.div`
 			margin: 2rem;
 			font-size: 1.25ch;
 		}
+
+		.header h1 {
+			text-align: right;
+		}
 	}
 
 	@media (min-width: 1300px) {
