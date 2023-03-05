@@ -7,6 +7,7 @@ import Store from './components/Store';
 import HomeNav from './components/HomeNav';
 import StoreNav from './components/StoreNav';
 import About from './components/info-components/About';
+import background from './assets/background-image.jpg';
 
 function App() {
 	// STATE VARIABLES
@@ -130,6 +131,7 @@ const StyledMain = styled.main`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	background: url(${background});
   `}
 
 	// ABOUT RENDERED

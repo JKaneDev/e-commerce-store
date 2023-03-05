@@ -5,6 +5,7 @@ import { FaTwitter } from 'react-icons/fa';
 import { FaLinkedinIn } from 'react-icons/fa';
 import { RiArrowRightSLine } from 'react-icons/ri';
 import { SiGithub } from 'react-icons/si';
+import Background from '../assets/background-image.jpg';
 
 const Home = () => {
 	return (

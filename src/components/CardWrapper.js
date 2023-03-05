@@ -226,6 +226,10 @@ const StyledCardWrapper = styled.div`
 		@media (min-width: 1200px) {
 			grid-template-columns: repeat(3, 1fr);
 		}
+
+		@media (min-width: 1950px) {
+			grid-template-columns: repeat(4, 1fr);
+		}
 	}
 
 	#rendered-cards.grid-view {
