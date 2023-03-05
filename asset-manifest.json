@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/JKaneDev/e-commerce-store/static/js/main.d1c2ccff.js",
+    "static/media/background-image.jpg": "/JKaneDev/e-commerce-store/static/media/background-image.e008cddace57245bf211.jpg",
+    "index.html": "/JKaneDev/e-commerce-store/index.html",
+    "main.d1c2ccff.js.map": "/JKaneDev/e-commerce-store/static/js/main.d1c2ccff.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.d1c2ccff.js"
+  ]
+}
