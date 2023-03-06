@@ -2,7 +2,7 @@
 
 This is a React application designed to showcase a game store website. The application is designed to help users find and purchase video games.
 
-[LIVE DEMO]()
+[LIVE DEMO](https://react-ecommerce-store.herokuapp.com/)
 
 [!Store Page](./src/assets/Store%20Page.png)
 
