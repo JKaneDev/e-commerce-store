@@ -4,7 +4,7 @@ This is a React application designed to showcase a game store website. The appli
 
 [LIVE DEMO](https://react-ecommerce-store.herokuapp.com/)
 
-[!Store Page](./src/assets/Store%20Page.png)
+[!Store Page](https://drive.google.com/file/d/1X2g_ZqawwuEEMKbBbjyo9AOvm7i0bDa7/view?usp=sharing)
 
 ## Objective
 
