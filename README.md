@@ -1,4 +1,4 @@
-# Project Name
+# E-Commerce Store (Gaming)
 
 This is a React application designed to showcase a game store website. The application is designed to help users find and purchase video games.
 
