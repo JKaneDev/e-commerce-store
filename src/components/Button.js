@@ -16,19 +16,17 @@ const StyledButton = styled.button`
 	background-color: black;
 	padding: 0.75rem 1.5rem;
 	letter-spacing: 0.15rem;
-	border: 1px solid white;
-	border-radius: 4px;
-	font-size: 2ch;
-	transition: all 0.15s ease-in-out;
+	border: 1px solid #606060;
+	border-radius: 8px;
+	font-size: 14px;
+	font-weight: 200;
 	display: flex;
 	align-items: center;
 	gap: 1rem;
+	transition: all 0.25s ease-in-out;
 
 	&:hover {
 		border: 1px solid orange;
 		color: orange;
-		transform: translateY(-2.5%);
 	}
 `;
-
-// **MAKE SEPARATE CART BUTTON COMPONENT**

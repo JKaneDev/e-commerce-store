@@ -1,4 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
+import "typeface-poppins";
 
 const GlobalStyle = createGlobalStyle`
     *,
@@ -17,11 +18,8 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         margin: 0;
-        font-family: 'Helvetica', sans-serif
-    }
-
-    body::-webkit-scrollbar {
-      display: none;
+        font-family: 'Poppins', 'Helvetica', sans-serif;
+        overflow: auto;
     }
 
     header {

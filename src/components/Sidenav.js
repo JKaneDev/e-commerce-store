@@ -13,6 +13,7 @@ import {
 	FaShieldAlt,
 	FaFistRaised,
 } from 'react-icons/fa';
+import { GiTreasureMap } from 'react-icons/gi';
 
 const Sidenav = ({ view, setView }) => {
 	// useEffect(() => {
@@ -65,7 +66,7 @@ const Sidenav = ({ view, setView }) => {
 						onClick={() => setView('strategy')}
 					/>
 					<Button
-						img={<FaMountain size={20} />}
+						img={<GiTreasureMap size={20} />}
 						text='Adventure'
 						onClick={() => setView('adventure')}
 					/>
@@ -96,19 +97,24 @@ const StyledSideNav = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
-	margin-top: 2rem;
+	margin-top: 4.75rem;
 
 	h3 {
 		color: white;
 		letter-spacing: 0.2rem;
-		padding: 2rem 0;
-		font-size: 1.5rem;
+		padding: 1rem 0;
+		font-size: 22px;
+		font-weight: 500;
 	}
 
 	ul {
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
+	}
+
+	.fa-mountain {
+		color: white;
 	}
 
 	@media (max-width: 560px) {
