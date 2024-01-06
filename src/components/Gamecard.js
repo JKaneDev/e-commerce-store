@@ -65,6 +65,7 @@ const Card = styled.div`
      min-height: 250px;
      border-radius: 8px;
      transition: all 0.35s ease-in-out;
+     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
      display: flex;
      flex-direction: column;

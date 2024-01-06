@@ -148,7 +148,7 @@ const StyledMain = styled.main`
           location.pathname === "/store" &&
           `
   display: grid;
-  grid-template-columns: 150px 1fr;
-  padding: 2rem;
+  grid-template-columns: 200px 1fr;
+  justify-content: center;
   `}
 `;

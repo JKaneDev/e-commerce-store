@@ -70,7 +70,7 @@ export default StoreNav;
 const StyledNav = styled.nav`
      display: flex;
      align-items: center;
-     background-color: black;
+     background-color: #000;
      color: white;
      padding: 2rem 1rem 2rem 2rem;
      border-bottom: 1px solid orange;
@@ -78,6 +78,7 @@ const StyledNav = styled.nav`
      div {
           display: flex;
           margin-left: 1rem;
+          box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
           svg {
                margin-right: 1rem;
